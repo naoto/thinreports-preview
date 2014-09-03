@@ -1,31 +1,36 @@
 # Thinreports::Preview
 
-TODO: Write a gem description
+Thinreports::Preview ia Thinporets Preview Library
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'thinreports-preview'
+gem 'thinreports-preview', git: "https://github.com/naoto/thnreports-preview.git"
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install thinreports-preview
-
 ## Usage
 
-TODO: Write usage instructions here
+Options
 
-## Contributing
+- `-t`,`--target` is thinreports template. default `./template/`
+- `-o`,`--output` is pdf output directory. default `./generate` 
 
-1. Fork it ( https://github.com/[my-github-username]/thinreports-preview/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+Execute
+
+```shell
+$ bundle exec ruby bin/thnreports-preview -t /path/to/tlf/file.tlf -o /output/direcitory
+```
+
+Library
+
+```ruby
+require 'thnrepornts/preview'
+
+Thinreports::Preview::Generater.new('/path/to/tlf/file.tlf').generate('/output/directory')
+```
