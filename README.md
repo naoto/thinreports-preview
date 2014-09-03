@@ -24,7 +24,7 @@ Options
 Execute
 
 ```shell
-$ bundle exec ruby bin/thnreports-preview -t /path/to/tlf/file.tlf -o /output/direcitory
+$ bundle exec ruby bin/thnreports-preview -t /path/to/file.tlf -o /output/direcitory
 ```
 
 Library
@@ -32,5 +32,5 @@ Library
 ```ruby
 require 'thnrepornts/preview'
 
-Thinreports::Preview::Generater.new('/path/to/tlf/file.tlf').generate('/output/directory')
+Thinreports::Preview::Generater.new('/path/to/file.tlf').generate('/output/directory')
 ```
