@@ -14,10 +14,10 @@ module Thinreports
       option = Option.new(args)
       if option[:target].nil?
         Dir.glob('./template/*.tlf').each do |f|
-          Thinreports::Preview::Generater.new(f).generate
+          Thinreports::Preview::Generater.new(f).generate(option[:output])
         end
       else
-        Thinreports::Preview::Generater.new(option[:target], option[:output]).generate
+        Thinreports::Preview::Generater.new(option[:target]).generate(option[:output])
       end
     end
   end

@@ -1,15 +1,14 @@
 module Thinreports::Preview
   class Generater
 
-    def initialize(file, output)
+    def initialize(file)
       @file = file
-      @output = output
     end
 
-    def generate
+    def generate(output)
       name = File.basename(@file, '.*')
       shapes = ::ThinReports::Layout.new(@file).format.shapes
-      ::ThinReports::Report.generate_file("#{@output}/#{name}.pdf", :layout => @file) do
+      ::ThinReports::Report.generate_file("#{output || './generate'}/#{name}.pdf", :layout => @file) do
         start_new_page
         shapes.each do |k,v|
           case shapes[k].type
