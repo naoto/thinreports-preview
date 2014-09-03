@@ -20,6 +20,7 @@ Options
 
 - `-t`,`--target` is thinreports template. default `./template/`
 - `-o`,`--output` is pdf output directory. default `./generate` 
+- `-l`,`--list_loop` is List Loop Count. default `1`
 
 Execute
 

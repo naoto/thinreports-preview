@@ -5,10 +5,10 @@ module Thinreports::Preview
       @file = file
     end
 
-    def generate(output)
+    def generate(output, list_loop)
       name = File.basename(@file, '.*')
       shapes = ::ThinReports::Layout.new(@file).format.shapes
-      ::ThinReports::Report.generate_file("#{output || './generate'}/#{name}.pdf", :layout => @file) do
+      ::ThinReports::Report.generate_file("#{output}/#{name}.pdf", :layout => @file) do
         start_new_page
         shapes.each do |k,v|
           case shapes[k].type
@@ -21,12 +21,14 @@ module Thinreports::Preview
               end
             end
 
-            list(tlist.name).add_row do |row|
-              tlist.header.each do |key,item|
-                row.item(key).value(item.preview_text)
-              end
-              tlist.items.each do |key, item|
-                row.item(key).value(item.preview_text)
+            list_loop.times do |i|
+              list(tlist.name).add_row do |row|
+                tlist.header.each do |key,item|
+                  row.item(key).value(item.preview_text)
+                end
+                tlist.items.each do |key, item|
+                    row.item(key).value(item.preview_text)
+                  end
               end
             end
 
