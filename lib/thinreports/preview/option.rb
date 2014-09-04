@@ -11,7 +11,7 @@ module Thinreports::Preview
 
       op = OptionParser.new
       op.on('-t', '--target VAL') { |v| self[:target] = v }
-      op.on('-o', '--output VAL') { |v| self[:output] = v.gsub(/[\/\\]$/,'') }
+      op.on('-o', '--output VAL') { |v| self[:output] = v.gsub(/[\/\\"]$/,'') }
       op.on('-l', '--list-loop VAL') { |v| self[:list_loop] = v.to_i }
       op.parse!(args)
     end
