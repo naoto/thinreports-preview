@@ -25,7 +25,7 @@ Options
 Execute
 
 ```shell
-$ bundle exec ruby bin/thnreports-preview -t /path/to/file.tlf -o /output/direcitory
+$ bundle exec ruby bin/thinreports-preview -t /path/to/file.tlf -o /output/direcitory
 ```
 
 Library
